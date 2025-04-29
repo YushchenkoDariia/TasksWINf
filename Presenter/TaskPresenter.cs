@@ -14,14 +14,11 @@ namespace TaskManager.Presenter
         private readonly ITaskView _view;
         private readonly List<TaskItem> _taskItems;
         private int _editingTaskIndex = -1;
-
-        // Конструктор презентера
         public TaskPresenter(ITaskView view)
         {
             _view = view;
             _taskItems = new List<TaskItem>();
 
-            // Підписуємося на події представлення
             _view.AddTaskClicked += HandleAddTaskClicked;
             _view.DeleteTaskClicked += HandleDeleteTaskClicked;
             _view.EditTaskClicked += HandleEditTaskClicked;

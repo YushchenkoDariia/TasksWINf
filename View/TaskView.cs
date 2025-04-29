@@ -11,22 +11,18 @@ namespace TaskManager
 {
     public partial class TaskView : Form, ITaskView
     {
-        // Реалізація подій
         public event EventHandler AddTaskClicked;
         public event EventHandler DeleteTaskClicked;
         public event EventHandler EditTaskClicked;
         public event EventHandler<TaskStatusChangedEventArgs> TaskStatusChanged;
 
-        // Реалізація властивостей
         public string TaskDescription => txtTaskDescription.Text;
         public int SelectedTaskIndex => checkedListTasks.SelectedIndex;
 
-        // Конструктор форми
         public TaskView()
         {
             InitializeComponent();
 
-            // Підписка на події кнопок
             btnAddTask.Click += (sender, e) => AddTaskClicked?.Invoke(this, EventArgs.Empty);
             btnDeleteTask.Click += (sender, e) => DeleteTaskClicked?.Invoke(this, EventArgs.Empty);
             btnEditTask.Click += (sender, e) => EditTaskClicked?.Invoke(this, EventArgs.Empty);
@@ -95,7 +91,6 @@ namespace TaskManager
             }));
         }
 
-        // Метод для ініціалізації дизайну форми
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskView));

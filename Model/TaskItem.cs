@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace TaskManager.Model
 {
-    // Делегат для події зміни статусу завдання
     public delegate void StatusChangedEventHandler(object sender, EventArgs e);
 
     public class TaskItem
@@ -32,7 +31,6 @@ namespace TaskManager.Model
             private set { _isCompleted = value; }
         }
 
-        // Конструктор
         public TaskItem(string description, bool isCompleted = false)
         {
             _description = description;
@@ -50,7 +48,6 @@ namespace TaskManager.Model
             }
         }
 
-        // Перевизначення методу ToString для зручного відображення
         public override string ToString()
         {
             return $"{Description} - {(IsCompleted ? "Виконано" : "Не виконано")}";
